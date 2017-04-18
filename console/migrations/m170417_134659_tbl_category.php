@@ -2,7 +2,7 @@
 
 use yii\db\Migration;
 
-class m130524_201442_init extends Migration
+class m170417_134659_tbl_category extends Migration
 {
     public function up()
     {
@@ -12,14 +12,15 @@ class m130524_201442_init extends Migration
             $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB';
         }
 
-        $this->createTable('{{%user}}', [
+        $this->createTable('{{tbl_category}}', [
             'id' => $this->primaryKey(),
-            'username' => $this->string()->notNull()->unique(),
-            'auth_key' => $this->string(32)->notNull(),
-            'password_hash' => $this->string()->notNull(),
-            'password_reset_token' => $this->string()->unique(),
-            'email' => $this->string()->notNull()->unique(),
-            'status' => $this->smallInteger()->notNull()->defaultValue(10),
+            'cateName' => $this->string(255)->notNull()->unique(),
+            'parent_id' => $this->integer(),
+            'keywords' => $this->string(255),
+            'description' => $this->string(255),
+            'order' => $this->integer()->notNull(),
+            'groups_id' => $this->integer()->notNull(),
+            'status' => $this->smallInteger()->notNull()->defaultValue(0),
             'created_at' => $this->integer()->notNull(),
             'updated_at' => $this->integer()->notNull(),
         ], $tableOptions);
@@ -27,6 +28,6 @@ class m130524_201442_init extends Migration
 
     public function down()
     {
-        $this->dropTable('{{%user}}');
+        $this->dropTable('{{%tbl_category}}');
     }
 }
