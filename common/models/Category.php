@@ -34,7 +34,7 @@ class Category extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['cateName', 'order', 'groups_id', 'created_at', 'updated_at'], 'required'],
+            [['cateName', 'order', 'groups_id', 'created_at', 'updated_at'], 'required','message'=>'{attribute} không được để trống'],
             [['parent_id', 'order', 'groups_id', 'status', 'created_at', 'updated_at'], 'integer'],
             [['cateName', 'keywords', 'description'], 'string', 'max' => 255],
             [['cateName'], 'unique'],
@@ -48,13 +48,13 @@ class Category extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'cateName' => 'Cate Name',
-            'parent_id' => 'Parent ID',
-            'keywords' => 'Keywords',
-            'description' => 'Description',
-            'order' => 'Order',
-            'groups_id' => 'Groups ID',
-            'status' => 'Status',
+            'cateName' => 'Tên danh mục',
+            'parent_id' => 'Danh mục cha',
+            'keywords' => 'Từ khóa',
+            'description' => 'Mô tả',
+            'order' => 'Thứ tự hiển thị',
+            'groups_id' => 'Nhóm danh mục',
+            'status' => 'Trạng thái',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
         ];

@@ -4,7 +4,9 @@ namespace backend\controllers;
 
 use Yii;
 use common\models\Category;
+use common\models\Group;
 use common\models\CategorySearch;
+use yii\helpers\ArrayHelper;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -65,11 +67,18 @@ class CategoryController extends Controller
     {
         $model = new Category();
 
+        $group = new Group();
+        $dataGroup = ArrayHelper::map($group->getAllGroup(),'id','groupName');
+        $time = time();
+        $model->created_at = $time;
+        $model->updated_at = $time;
+
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
+                'dataGroup' => $dataGroup,
             ]);
         }
     }

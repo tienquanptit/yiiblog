@@ -14,6 +14,8 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'cateName')->textInput(['maxlength' => true]) ?>
 
+    <?= $form->field($model, 'groups_id')->dropDownList($dataGroup,['prompt'=>'-Chọn danh mục-']) ?>
+
     <?= $form->field($model, 'parent_id')->textInput() ?>
 
     <?= $form->field($model, 'keywords')->textInput(['maxlength' => true]) ?>
@@ -22,9 +24,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'order')->textInput() ?>
 
-    <?= $form->field($model, 'groups_id')->textInput() ?>
-
-    <?= $form->field($model, 'status')->textInput() ?>
+    <?= $form->field($model, 'status')->checkbox() ?>
 
 
     <div class="form-group">
