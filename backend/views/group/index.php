@@ -27,9 +27,20 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'groupName',
             'status',
-            'created_at',
-            'updated_at',
-
+//            'created_at',
+            [
+                'attribute'=>'created_at',
+                'content' =>function($model){
+                    return date('d-m-Y',$model->created_at);
+                }
+            ],
+//            'updated_at',
+            [
+                'attribute'=>'updated_at',
+                'content' =>function($model){
+                    return date('d-m-Y',$model->created_at);
+                }
+            ],
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>

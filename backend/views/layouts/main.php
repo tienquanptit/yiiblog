@@ -22,16 +22,22 @@ AppAsset::register($this);
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
+
+
+
 </head>
 <body class="nav-md">
 <?php $this->beginBody() ?>
 
 <div class="container body">
+
+
+
     <div class="main_container">
         <div class="col-md-3 left_col">
             <div class="left_col scroll-view">
                 <div class="navbar nav_title" style="border: 0;">
-                    <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Gentelella Alela!</span></a>
+                    <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>ADMIN BLOG!</span></a>
                 </div>
 
                 <div class="clearfix"></div>
@@ -39,7 +45,7 @@ AppAsset::register($this);
                 <!-- menu profile quick info -->
                 <div class="profile clearfix">
                     <div class="profile_pic">
-                        <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+                        <img src="../../images/img.jpg" alt="..." class="img-circle profile_img">
                     </div>
                     <div class="profile_info">
                         <span>Welcome,</span>
@@ -66,8 +72,8 @@ AppAsset::register($this);
                                 <ul class="nav child_menu">
                                     <li><a href="<?php echo Yii::$app->homeUrl.'group/';?>">Nhóm danh mục</a></li>
                                     <li><a href="<?php echo Yii::$app->homeUrl.'category/';?>">Danh mục</a></li>
-                                    <li><a href="form_validation.html">Form Validation</a></li>
-                                    <li><a href="form_wizards.html">Form Wizard</a></li>
+                                    <li><a href="<?php echo Yii::$app->homeUrl.'post/';?>">Bài viết</a></li>
+                                    <li><a href="<?php echo Yii::$app->homeUrl.'file/';?>">Quản lý ảnh</a></li>
                                     <li><a href="form_upload.html">Form Upload</a></li>
                                     <li><a href="form_buttons.html">Form Buttons</a></li>
                                 </ul>
@@ -184,7 +190,7 @@ AppAsset::register($this);
                     <ul class="nav navbar-nav navbar-right">
                         <li class="">
                             <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                <img src="images/img.jpg" alt="">John Doe
+                                <img src="../../images/img.jpg" alt="">John Doe
                                 <span class=" fa fa-angle-down"></span>
                             </a>
                             <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -196,7 +202,12 @@ AppAsset::register($this);
                                     </a>
                                 </li>
                                 <li><a href="javascript:;">Help</a></li>
-                                <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                                <li>
+<!--                                    <a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a>-->
+                                    <a href="<?= \yii\helpers\Url::to(['site/logout']) ?>" data-method="post">
+                                        <i class="fa fa-sign-out">Log out</i>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
 
@@ -289,7 +300,10 @@ AppAsset::register($this);
     </div>
 </div>
 
+
+
 <?php $this->endBody() ?>
+
 </body>
 </html>
 <?php $this->endPage() ?>

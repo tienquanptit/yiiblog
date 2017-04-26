@@ -59,4 +59,33 @@ class Category extends \yii\db\ActiveRecord
             'updated_at' => 'Updated At',
         ];
     }
+
+    public $data;
+    public function getCategoryParent($parent=0, $level=''){
+        $result = Category::find()
+            ->asArray()
+            ->where('parent_id = :parent', ['parent'=>$parent])
+            ->all();
+        $level .='-';
+        foreach ($result as $key => $value){
+            if($parent==0){
+                $level = '';
+            }
+            $this->data[$value['id']] = $level.$value['cateName'];
+            //de quy gọi chính nó
+            self::getCategoryParent($value['id'],$level);
+        }
+        return $this->data;
+    }
+
+
+    public function getCategoryByParent($parent=0, $group=4, $status=1){
+        $data = Category::find()->asArray()
+            ->where('parent_id = :parent and groups_id = :group and status = :status',
+                ['parent'=>$parent, 'group'=>$group, 'status'=>$status])
+            ->all();
+
+        return $data;
+    }
+
 }

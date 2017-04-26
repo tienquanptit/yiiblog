@@ -69,6 +69,11 @@ class CategoryController extends Controller
 
         $group = new Group();
         $dataGroup = ArrayHelper::map($group->getAllGroup(),'id','groupName');
+
+        $dataCat = $model->getCategoryParent();
+        if(empty($dataCat))
+            $dataCat = array();
+
         $time = time();
         $model->created_at = $time;
         $model->updated_at = $time;
@@ -79,6 +84,7 @@ class CategoryController extends Controller
             return $this->render('create', [
                 'model' => $model,
                 'dataGroup' => $dataGroup,
+                'dataCat' => $dataCat,
             ]);
         }
     }
@@ -94,6 +100,11 @@ class CategoryController extends Controller
         $model = $this->findModel($id);
         $group = new Group();
         $dataGroup = ArrayHelper::map($group->getAllGroup(),'id','groupName');
+
+        $dataCat = $model->getCategoryParent();
+        if(empty($dataCat))
+            $dataCat = array();
+
         $time = time();
         $model->updated_at = $time;
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
@@ -102,6 +113,7 @@ class CategoryController extends Controller
             return $this->render('update', [
                 'model' => $model,
                 'dataGroup' => $dataGroup,
+                'dataCat' => $dataCat,
             ]);
         }
     }
