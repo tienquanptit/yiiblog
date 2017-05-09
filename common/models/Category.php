@@ -34,7 +34,7 @@ class Category extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['cateName', 'order', 'groups_id', 'created_at', 'updated_at'], 'required','message'=>'{attribute} không được để trống'],
+            [['cateName', 'order', 'groups_id', 'created_at', 'updated_at'], 'required', 'message' => '{attribute} không được để trống'],
             [['parent_id', 'order', 'groups_id', 'status', 'created_at', 'updated_at'], 'integer'],
             [['cateName', 'keywords', 'description'], 'string', 'max' => 255],
             [['cateName'], 'unique'],
@@ -61,28 +61,31 @@ class Category extends \yii\db\ActiveRecord
     }
 
     public $data;
-    public function getCategoryParent($parent=0, $level=''){
+
+    public function getCategoryParent($parent = 0, $level = '')
+    {
         $result = Category::find()
             ->asArray()
-            ->where('parent_id = :parent', ['parent'=>$parent])
+            ->where('parent_id = :parent', ['parent' => $parent])
             ->all();
-        $level .='-';
-        foreach ($result as $key => $value){
-            if($parent==0){
+        $level .= '-';
+        foreach ($result as $key => $value) {
+            if ($parent == 0) {
                 $level = '';
             }
-            $this->data[$value['id']] = $level.$value['cateName'];
+            $this->data[$value['id']] = $level . $value['cateName'];
             //de quy gọi chính nó
-            self::getCategoryParent($value['id'],$level);
+            self::getCategoryParent($value['id'], $level);
         }
         return $this->data;
     }
 
 
-    public function getCategoryByParent($parent=0, $group=4, $status=1){
+    public function getCategoryByParent($parent = 0, $group = 4, $status = 1)
+    {
         $data = Category::find()->asArray()
             ->where('parent_id = :parent and groups_id = :group and status = :status',
-                ['parent'=>$parent, 'group'=>$group, 'status'=>$status])
+                ['parent' => $parent, 'group' => $group, 'status' => $status])
             ->all();
 
         return $data;

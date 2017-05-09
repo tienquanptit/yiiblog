@@ -9,4 +9,13 @@ return [
           'class'=>'yii\rbac\DbManager'
         ],
     ],
+    'modules' => [
+        // ...
+        'comments' => [
+            'class' => 'rmrevin\yii\module\Comments\Module',
+            'userIdentityClass' => 'app\models\User',
+            'useRbac' => true,
+        ],
+    ],
+
 ];

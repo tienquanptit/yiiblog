@@ -2,7 +2,7 @@
 
 use yii\db\Migration;
 
-class m170419_103015_tbl_post extends Migration
+class m170504_031451_tbl_post extends Migration
 {
     public function up()
     {
@@ -22,6 +22,7 @@ class m170419_103015_tbl_post extends Migration
 
             'groups_id' => $this->integer()->notNull(),
             'cate_id' => $this->integer()->notNull(),
+            'tags'=> $this->string(),
 
             'status' => $this->smallInteger()->notNull()->defaultValue(0),
             'created_at' => $this->integer()->notNull(),

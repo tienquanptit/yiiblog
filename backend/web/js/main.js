@@ -2,7 +2,7 @@ $(document).ready(function () {
     tinymce.init({
         selector: 'textarea#content',
         height: 350,
-        width:"",
+        width: "",
         plugins: [
             "codemirror advlist autolink lists link image charmap print preview hr anchor pagebreak",
             "searchreplace wordcount visualblocks visualchars fullscreen",
@@ -15,11 +15,12 @@ $(document).ready(function () {
 
         menubar: false,
         toolbar_items_size: 'small',
-        relative_urls: true,
-        remove_script_host : false,
-        filemanager_title:"Media Manager",
+
+        relative_urls: false,
+        remove_script_host: false,
+        filemanager_title: "Media Manager",
         external_filemanager_path: "http://local.admin.testfile.com/file/",
-        external_plugins: { "filemanager" : "http://local.admin.testfile.com/file/plugin.min.js"},
+        external_plugins: {"filemanager": "http://local.admin.testfile.com/file/plugin.min.js"},
         // filemanager_access_key:csrf(),
 
 
@@ -29,7 +30,7 @@ $(document).ready(function () {
         selector: 'textarea#desc',
         toolbar_items_size: 'small',
         height: 250,
-        width:"",
+        width: "",
         plugins: [
             "advlist autolink lists link image charmap print preview hr anchor pagebreak",
             "searchreplace wordcount visualblocks visualchars fullscreen",
@@ -42,33 +43,32 @@ $(document).ready(function () {
         toolbar_items_size: 'small',
 
         relative_urls: true,
-        remove_script_host : false,
-        filemanager_title:"Media Manager",
+        remove_script_host: false,
+        filemanager_title: "Media Manager",
         external_filemanager_path: "http://local.admin.testfile.com/file/",
-        external_plugins: { "filemanager" : "http://local.admin.testfile.com/file/plugin.min.js"},
+        external_plugins: {"filemanager": "http://local.admin.testfile.com/file/plugin.min.js"},
         // filemanager_access_key:csrf(),
 
 
     });
 
-    // $('a#select-img').click(function (event) {
-    //     event.preventDefault();
-    //     $('#modal-media-imge').modal('show');
-    //
-    //     $('#modal-media-imge').on('hide.bs.modal',function (e) {
-    //         var $imgUrl = $('input#image').val();
-    //         $('img#show-img').attr('src',$imgUrl);
-    //         // alert(2323);
-    //     });
-    // });
+    $('a#select-img').click(function (event) {
+        event.preventDefault();
+        $('#modal-media-imge').modal('show');
+
+        $('#modal-media-imge').on('hide.bs.modal',function (e) {
+            var imgUrl = $('input#image').val();
+            $('img#show-img').attr('src',imgUrl);
+            // alert(2323);
+        });
+    });
 
 
-
-    // $('a#remove-img').click(function (event) {
-    //     event.preventDefault();
-    //     $('input#image').val('');
-    //     $('img#show-img').attr('src','');
-    // });
+    $('a#remove-img').click(function (event) {
+        event.preventDefault();
+        $('input#image').val('');
+        $('img#show-img').attr('src','');
+    });
 
 
     // jQuery(document).ready(function($) {

@@ -10,6 +10,7 @@ use yii\helpers\ArrayHelper;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
 
 /**
  * CategoryController implements the CRUD actions for Category model.
@@ -19,6 +20,40 @@ class CategoryController extends Controller
     /**
      * @inheritdoc
      */
+//    public function behaviors()
+//    {
+//        return [
+//            'access' => [
+//                'class' => AccessControl::className(),
+//                'rules' => [
+//                    [
+//                        'actions' => ['login', 'error'],
+//                        'allow' => true,
+//                    ],
+//                    [
+//                        'allow' => true,
+//                        'roles' => ['@'],
+//                        'matchCallback' => function($rule, $action){
+//                            $control = Yii::$app->controller->id;
+//                            $action = Yii::$app->controller->action->id;
+//
+//                            $role = $action.'-'.$control; //index-category
+//                            if(Yii::$app->user->can($role)){
+//                                return true;
+//                            }
+//                        }
+//                    ],
+//                ],
+//            ],
+//            'verbs' => [
+//                'class' => VerbFilter::className(),
+//                'actions' => [
+//                    'logout' => ['post'],
+//                    'delete' => ['post'],
+//                ],
+//            ],
+//        ];
+//    }
     public function behaviors()
     {
         return [

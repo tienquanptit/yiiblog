@@ -1,7 +1,7 @@
 <?php
 
 use yii\helpers\Html;
-
+use kartik\widgets\Select2;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Post */
@@ -9,6 +9,9 @@ use yii\helpers\Html;
 $this->title = 'Create Post';
 $this->params['breadcrumbs'][] = ['label' => 'Posts', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
+
+
+
 ?>
 <div class="post-create">
 
@@ -20,6 +23,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
         'model_cate' => $model_cate,
         'dataCat' => $dataCat,
+
+        'alltag' => $alltag,
     ]) ?>
 
 </div>

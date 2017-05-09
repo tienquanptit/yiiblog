@@ -25,7 +25,7 @@ class AppAsset extends AssetBundle
     public $js = [
         'tinymce/tinymce.min.js',
         'js/main.js',
-        'vendors/jquery/dist/jquery.min.js',
+        //'vendors/jquery/dist/jquery.min.js',
         'vendors/bootstrap/dist/js/bootstrap.min.js',
         'vendors/fastclick/lib/fastclick.js',
         'vendors/nprogress/nprogress.js',

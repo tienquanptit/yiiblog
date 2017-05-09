@@ -1,8 +1,10 @@
 <?php
 namespace frontend\controllers;
 
+use common\models\Post;
 use Yii;
 use yii\base\InvalidParamException;
+use yii\data\Pagination;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
@@ -72,7 +74,23 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        #code...
+        #phan trang
+        $query = Post::find();
+
+        $pagination = new Pagination([
+            'defaultPageSize' => 4,
+            'totalCount' => $query->count(),
+        ]);
+        $posts = $query->orderBy('created_at')
+            ->offset($pagination->offset)
+            ->limit($pagination->limit)
+            ->all();
+
+        return $this->render('index',[
+            'posts'=>$posts,
+            'pagination'=>$pagination,
+        ]);
     }
 
     /**

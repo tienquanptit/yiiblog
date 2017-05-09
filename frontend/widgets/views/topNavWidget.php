@@ -6,6 +6,7 @@
  * Time: 11:58 AM
  */
 use common\models\Category;
+$Baseurl = Yii::$app->homeUrl;
 ?>
 
 <!-- Navigation -->
@@ -17,14 +18,14 @@ use common\models\Category;
                 <span class="sr-only">Toggle navigation</span>
                 Menu <i class="fa fa-bars"></i>
             </button>
-            <a class="navbar-brand" href="index.html">Trang chủ Blog Quan</a>
+            <a class="navbar-brand" href="<?= \yii\helpers\Url::to(['site/index']) ?>">Trang chủ Blog's QuanTien</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
 <!--                <li>-->
-<!--                    <!--                    <a href="index.html">Home</a>-->-->
+<!--                    <!--                    <a href="index.html">Home</a>-->
 <!--                    <div class="dropdown">-->
 <!--                        <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Home-->
 <!--                            <span class="caret"></span></button>-->
@@ -43,10 +44,10 @@ use common\models\Category;
                 ?>
 
                 <li>
-                    <div class="dropdown">
-                        <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">
+
+                        <a href="javascript:;" class=" user-profile dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">
                             <?php echo $value['cateName'];?>
-                            <span class="caret"></span></button>
+                            <span class="caret"></span></a>
 
 
                         <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
@@ -55,7 +56,7 @@ use common\models\Category;
                             $dataCatSub1 = $catSub1 ->getCategoryByParent($value['id']);
                             foreach ($dataCatSub1 as $key1 => $value1) {
                                 ?>
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="<?= Yii::$app->homeUrl?>post/listpost?id=<?php echo $value1['id']?>">
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="<?=$Baseurl;?>post/list-post?id=<?php echo $value1['id']?>">
                                         <?php echo $value1['cateName'];?>
                                     </a></li>
 
@@ -63,20 +64,48 @@ use common\models\Category;
                             }
                             ?>
                         </ul>
-                    </div>
+
                 </li>
 
                 <?php } ?>
 
                 <li>
-                    <a href="about.html">About</a>
+                    <a href="<?= \yii\helpers\Url::to(['site/about']) ?> ">About</a>
                 </li>
                 <li>
-                    <a href="post.html">Sample Post</a>
+                    <a href="<?= \yii\helpers\Url::to(['site/contact']) ?>">Contact</a>
                 </li>
-                <li>
-                    <a href="contact.html">Contact</a>
-                </li>
+                <?php
+                    if(Yii::$app->user->isGuest) {
+                        ?>
+                        <li>
+                            <a href="<?= \yii\helpers\Url::to(['site/login']) ?>">Login</a>
+                        </li>
+                        <?php
+                    }else {
+                        ?>
+                        <ul class="nav navbar-nva navbar-right">
+                            <li class="">
+                                <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown"
+                                   aria-expanded="false">Account</a>
+                                <ul class="dropdown-menu dropdown-usermenu pull-right" id="dropdownacount">
+                                    <li style="...">
+                                        <a href="javascript:;" style="...">
+                                            Signing in as: <?php echo Yii::$app->user->identity->username; ?>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="<?= \yii\helpers\Url::to(['site/logout']) ?>" data-method="post">
+                                            <i class="fa fa-sign-out"></i>Log out
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <?php
+                    }
+                ?>
+
             </ul>
         </div>
         <!-- /.navbar-collapse -->
@@ -86,7 +115,7 @@ use common\models\Category;
 
 <!-- Page Header -->
 <!-- Set your background image for this header on the line below. -->
-<header class="intro-header" style="background-image: url('img/home-bg.jpg')">
+<header class="intro-header" style="background-image: url('<?=$Baseurl;?>img/home-bg.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">

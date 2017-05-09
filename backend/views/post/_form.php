@@ -2,7 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-
+use kartik\widgets\Select2;
 /* @var $this yii\web\View */
 /* @var $model common\models\Post */
 /* @var $form yii\widgets\ActiveForm */
@@ -20,7 +20,17 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'cate_id')->dropDownList($dataCat,['prompt'=>'-Chọn danh mục-']) ?>
 
-    <?= $form->field($model, 'file')->fileInput() ?>
+    <div class="row">
+        <div class="col-md-3">
+            <?= $form->field($model, 'image')->hiddenInput(['id'=>'image']) ?>
+            <img src="<?php echo $model->image;?>" id="show-img">
+            <a href="#" id="select-img" title="Chọn hình ảnh" class="btn btn-info btn-sm">Chọn ảnh</a>
+            <a href="#" id="remove-img" title="Xóa hình ảnh" class="btn btn-danger btn-sm">Xóa ảnh</a>
+        </div>
+        <div class="col-md-9">
+
+        </div>
+    </div>
 
     <?= $form->field($model, 'description')->textarea(['id' => 'desc']) ?>
 
@@ -28,7 +38,18 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'status')->checkbox() ?>
 
-
+<?php
+echo $form->field($model, 'tag')->widget(Select2::classname(), [
+    'data' => $alltag,
+    'options' => ['placeholder' => 'Select a Tags...', 'multiple' => true],
+    'pluginOptions' => [
+        'tags' => true,
+        'tokenSeparators' => [',', ' '],
+        'maximumInputLength' => 10
+    ],
+])->label('Tag Multiple');
+?>
+<!--    --><?php //echo $form->field($model,'tags')->textInput(array('size'=>50)); ?>
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>

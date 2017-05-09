@@ -18,7 +18,16 @@
         "yiisoft/yii2": "~2.0.6",
         "yiisoft/yii2-bootstrap": "~2.0.0",
         "yiisoft/yii2-swiftmailer": "~2.0.0",
-        "2amigos/yii2-tinymce-widget": "~1.1"
+        "2amigos/yii2-tinymce-widget": "~1.1",
+        "yeesoft/yii2-comments": "~0.1.0",
+        "spanjeta/yii2-comments": "*",
+        "yii2mod/yii2-comments": "*",
+        "rmrevin/yii2-comments": "~1.4",
+        "mdmsoft/yii2-admin": "~2.0",
+        "kartik-v/yii2-widgets": "*",
+        "sjaakp/yii2-taggable": "*",
+        "wbraganca/yii2-tagsinput": "~1.0.2",
+        "kartik-v/yii2-social": "@dev"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

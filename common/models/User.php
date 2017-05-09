@@ -186,4 +186,21 @@ class User extends ActiveRecord implements IdentityInterface
     {
         $this->password_reset_token = null;
     }
+
+
+    //comment
+//    public function getCommentatorAvatar()
+//    {
+//        return $this->avatar_url;
+//    }
+//
+//    public function getCommentatorName()
+//    {
+//        return $this->name;
+//    }
+//
+//    public function getCommentatorUrl()
+//    {
+//        return ['/profile', 'id' => $this->id]; // or false, if user does not have a public page
+//    }
 }

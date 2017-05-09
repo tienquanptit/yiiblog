@@ -20,6 +20,8 @@ $this->params['breadcrumbs'][] = 'Update';
 
         'model_cate' => $model_cate,
         'dataCat' => $dataCat,
+
+        'alltag' => $alltag,
     ]) ?>
 
 </div>
