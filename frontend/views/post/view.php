@@ -10,7 +10,7 @@ use rmrevin\yii\module\Comments;
 use yii\helpers\Html;
 use common\models\Post;
 use yii\widgets\LinkPager;
-
+use kartik\social\FacebookPlugin;
 
 ?>
 <head>
@@ -97,8 +97,10 @@ use yii\widgets\LinkPager;
 <!--        --><?php //echo Comments\widgets\CommentListWidget::widget([
 //            'entity' => (string) 'photo-15', // type and id
 //        ]);?>
-            <h3>Bình luận</h3>
-            <div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-width="100%" data-numposts="5"></div>
+<!--            <h3>Bình luận</h3>-->
+<!--            <div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-width="100%" data-numposts="5"></div>-->
+
+            echo FacebookPlugin::widget([]);
         <?php else: ?>
         <div class="alert alert-danger">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">$tiems;

@@ -16,6 +16,19 @@ return [
             'userIdentityClass' => 'app\models\User',
             'useRbac' => true,
         ],
+
+        //tích hợp facebook
+        'social' => [
+            // the module class
+            'class' => 'kartik\social\Module',
+
+            // the global settings for the Facebook plugins widget
+            'facebook' => [
+                'appId' => 'FACEBOOK_APP_ID',
+                'secret' => 'FACEBOOK_APP_SECRET',
+            ],
+
+        ],
     ],
 
 ];

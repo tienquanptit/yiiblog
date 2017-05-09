@@ -3,6 +3,8 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use kartik\widgets\Select2;
+use dosamigos\ckeditor\CKEditor;
+use mihaildev\elfinder\ElFinder;
 /* @var $this yii\web\View */
 /* @var $model common\models\Post */
 /* @var $form yii\widgets\ActiveForm */
@@ -32,9 +34,19 @@ use kartik\widgets\Select2;
         </div>
     </div>
 
-    <?= $form->field($model, 'description')->textarea(['id' => 'desc']) ?>
+<!--    --><?//= $form->field($model, 'description')->textarea(['id' => 'desc']) ?>
+    <?= $form->field($model, 'description')->widget(CKEditor::className(), [
+        'options' => ['rows' => 6],
+        'preset' => 'basic',
+        'clientOptions' => ElFinder::ckeditorOptions(['elfinder']),
+    ]) ?>
 
-    <?= $form->field($model, 'content')->textarea(['id' => 'content']) ?>
+<!--    --><?//= $form->field($model, 'content')->textarea(['id' => 'content']) ?>
+    <?= $form->field($model, 'content')->widget(CKEditor::className(), [
+        'options' => ['rows' => 6],
+        'preset' => 'full',
+        'clientOptions' => ElFinder::ckeditorOptions(['elfinder']),
+    ]) ?>
 
     <?= $form->field($model, 'status')->checkbox() ?>
 
