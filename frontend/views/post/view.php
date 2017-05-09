@@ -92,7 +92,7 @@ use yii\widgets\LinkPager;
 <!--        </article>-->
 
 
-
+<h3>Demo</h3>
 
 <!--        --><?php //echo Comments\widgets\CommentListWidget::widget([
 //            'entity' => (string) 'photo-15', // type and id
