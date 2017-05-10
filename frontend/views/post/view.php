@@ -59,7 +59,7 @@ use kartik\social\FacebookPlugin;
                                 if ($i % 2 == 0) {
                                     ?>
                                     <a class="btn btn-success btn-xs"
-                                       href="<?= \yii\helpers\Url::to(['post/list-tag/']).'?id=' . $item->id ?>""><?= $item->name; ?></a>
+                                       href="<?= \yii\helpers\Url::to(['post/list-tag/']).'?id=' . $item->id ?>"><?= $item->name; ?></a>
                                     <?php
                                 } else {
                                     ?>
@@ -71,6 +71,7 @@ use kartik\social\FacebookPlugin;
                             }
                             ?>
                     </div>
+
 
                 </div>
 

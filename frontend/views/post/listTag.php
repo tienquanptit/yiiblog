@@ -19,13 +19,23 @@ $this->title = $tag->name;
 <div class="row">
     <div class="col-xs-12 col-sm-6 col-md-8">
         <?php foreach ($allpost as $item) : ?>
-            <div class="post-preview">
+            <div class="tags">
+                <div class="col-md-7" style="padding: 10px">
 
-                <a href="<?= \yii\helpers\Url::to(['/post/view/']) . '?id=' . $item->id; ?>">
-                    <p><?= $item->postName ?></p>
-                </a>
+                    <img src="<?php echo Yii::$app->request->baseUrl . "http://local.admin.yiidemo.com" . $item->image ?>"
+                         alt="Picture" style="width:100%">
+
+                </div>
+
+                <div class="col-md-5">
+                    <div class="title" style="margin-top: 30px;">
+                        <a href="<?= \yii\helpers\Url::to(['/post/view/']) . '?id=' . $item->id; ?>">
+                            <p><b><?= $item->postName ?></b></p>
+                        </a>
+                    </div>
+                </div>
             </div>
-            <hr>
+
 
         <?php endforeach; ?>
 
@@ -34,69 +44,3 @@ $this->title = $tag->name;
     <!--    SlideBar-->
     <?= \frontend\widgets\slideBarWidget::widget() ?>
 </div>
-
-
-
-<!--<div class="view-post">-->
-<!---->
-<!--    <!-- Page Header -->-->
-<!--    <!-- Set your background image for this header on the line below. -->-->
-<!--    <br>-->
-<!--    <hr>-->
-<!--    <div class="container">-->
-<!--        <div class="row">-->
-<!--            <div class="col-xs-12 col-sm-6 col-md-8">-->
-<!--                <div class="w3-card-4 w3-margin w3-white">-->
-<!--                    <div class="heading"><h3>Tag: --><?//= $tag->name; ?><!--</h3></div>-->
-<!--                    <hr>-->
-<!---->
-<!---->
-<!--                    --><?php
-//                    foreach ($allpost as $item) {
-//                        ?>
-<!--                        <div class="article">-->
-<!--                            <div class="row">-->
-<!--                                <div class="col-md-3">-->
-<!--                                    <div class="cover">-->
-<!--                                        <a href="--><?//= \yii\helpers\Url::to(['/post/view/']) . '?id=' . $item->id; ?><!--">-->
-<!--                                            <img src="--><?//= $item->image ?><!--">-->
-<!--                                        </a>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                                <div class="col-md-9">-->
-<!--                                    <div class="title" style="margin-top: 30px;">-->
-<!--                                        <a href="--><?//= \yii\helpers\Url::to(['/post/view/']) . '?id=' . $item->id; ?><!--">-->
-<!--                                            <p>--><?//= $item->postName ?><!--</p>-->
-<!--                                        </a>-->
-<!--                                    </div>-->
-<!--                                    <div class="description">-->
-<!--                                        <p>-->
-<!--                                            --><?php
-//                                            if (strlen($item->description) > 150) {
-//                                                echo mb_substr($item->description, 0, 150, "utf-8") . '...';
-//                                            } else {
-//                                                echo $item->description;
-//                                            }
-//                                            ?>
-<!--                                        </p>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                        <hr/>-->
-<!--                        --><?php
-//                    }
-//                    ?>
-<!---->
-<!---->
-<!---->
-<!---->
-<!--                </div>-->
-<!---->
-<!---->
-<!--            </div>-->
-<!--            <!--    SlideBar-->-->
-<!--            --><?//= \frontend\widgets\slideBarWidget::widget() ?>
-<!--        </div>-->
-<!--        <hr>-->
-<!--    </div>-->
