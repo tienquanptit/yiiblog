@@ -100,7 +100,10 @@ use kartik\social\FacebookPlugin;
 <!--            <h3>Bình luận</h3>-->
 <!--            <div class="fb-comments" data-href="https://developers.facebook.com/docs/plugins/comments#configurator" data-width="100%" data-numposts="5"></div>-->
 
-            echo FacebookPlugin::widget([]);
+
+            <?php
+                echo FacebookPlugin::widget(['type'=>FacebookPlugin::COMMENT, 'settings' => ['data-width'=>1000, 'data-numposts'=>5]]);
+            ?>
         <?php else: ?>
         <div class="alert alert-danger">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">$tiems;

@@ -5,6 +5,10 @@ use yii\widgets\ActiveForm;
 use kartik\widgets\Select2;
 use dosamigos\ckeditor\CKEditor;
 use mihaildev\elfinder\ElFinder;
+
+
+use mihaildev\elfinder\InputFile;
+use yii\web\JsExpression;
 /* @var $this yii\web\View */
 /* @var $model common\models\Post */
 /* @var $form yii\widgets\ActiveForm */
@@ -22,17 +26,31 @@ use mihaildev\elfinder\ElFinder;
 
     <?= $form->field($model, 'cate_id')->dropDownList($dataCat,['prompt'=>'-Chọn danh mục-']) ?>
 
-    <div class="row">
-        <div class="col-md-3">
-            <?= $form->field($model, 'image')->hiddenInput(['id'=>'image']) ?>
-            <img src="<?php echo $model->image;?>" id="show-img">
-            <a href="#" id="select-img" title="Chọn hình ảnh" class="btn btn-info btn-sm">Chọn ảnh</a>
-            <a href="#" id="remove-img" title="Xóa hình ảnh" class="btn btn-danger btn-sm">Xóa ảnh</a>
-        </div>
-        <div class="col-md-9">
+<!--    <div class="row">-->
+<!--        <div class="col-md-3">-->
+<!--            --><?//= $form->field($model, 'image')->hiddenInput(['id'=>'image']) ?>
+<!--            <img src="--><?php //echo $model->image;?><!--" id="show-img">-->
+<!--            <a href="#" id="select-img" title="Chọn hình ảnh" class="btn btn-info btn-sm">Chọn ảnh</a>-->
+<!--            <a href="#" id="remove-img" title="Xóa hình ảnh" class="btn btn-danger btn-sm">Xóa ảnh</a>-->
+<!--        </div>-->
+<!--        <div class="col-md-9">-->
+<!---->
+<!--        </div>-->
+<!--    </div>-->
 
-        </div>
-    </div>
+
+
+    <?= $form->field($model, 'image')->widget(InputFile::className(), [
+        'language'      => 'en',
+        'controller'    => 'elfinder', // вставляем название контроллера, по умолчанию равен elfinder
+        'filter'        => 'image',    // фильтр файлов, можно задать массив фильтров https://github.com/Studio-42/elFinder/wiki/Client-configuration-options#wiki-onlyMimes
+        'template'      => '<div class="input-group">{input}<span class="input-group-btn">{button}</span></div>',
+        'options'       => ['class' => 'form-control'],
+        'buttonOptions' => ['class' => 'btn btn-default'],
+        'multiple'      => false       // возможность выбора нескольких файлов
+    ]);
+    ?>
+
 
 <!--    --><?//= $form->field($model, 'description')->textarea(['id' => 'desc']) ?>
     <?= $form->field($model, 'description')->widget(CKEditor::className(), [
@@ -56,7 +74,7 @@ echo $form->field($model, 'tag')->widget(Select2::classname(), [
     'options' => ['placeholder' => 'Select a Tags...', 'multiple' => true],
     'pluginOptions' => [
         'tags' => true,
-        'tokenSeparators' => [',', ' '],
+        'tokenSeparators' => [',', ' ','[TAB]'],
         'maximumInputLength' => 10
     ],
 ])->label('Tag Multiple');
