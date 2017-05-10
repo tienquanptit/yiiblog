@@ -12,7 +12,7 @@ class FrontAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-        'https://www.w3schools.com/w3css/4/w3.css',
+        'css/w3school.css',
         'vendor/bootstrap/css/bootstrap.min.css',
         'css/clean-blog.min.css',
         'vendor/font-awesome/css/font-awesome.min.css',
