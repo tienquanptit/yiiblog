@@ -50,29 +50,21 @@ use kartik\social\FacebookPlugin;
                             <p><?php echo $model->content; ?></p>
 
                         </div>
-
-                        <div class="tags">
-                            Tag:
-                            <?php
-                            $i = 0;
-                            foreach ($tag as $item) {
-                                if ($i % 2 == 0) {
-                                    ?>
-                                    <a class="btn btn-success btn-xs"
-                                       href="<?= \yii\helpers\Url::to(['post/list-tag/']).'?id=' . $item->id ?>"><?= $item->name; ?></a>
-                                    <?php
-                                } else {
-                                    ?>
-                                    <a class="btn btn-danger btn-xs"
-                                       href="<?= \yii\helpers\Url::to(['post/list-tag/']).'?id=' . $item->id ?>"><?= $item->name; ?></a>
-                                    <?php
-                                }
-                                $i++;
-                            }
-                            ?>
-                    </div>
+                        <hr>
 
 
+                        <div class="klw-new-tags clearfix">
+                            <ul class="knt-list">
+                                <?php
+                                    foreach ($tag as $item) {
+                                        ?>
+                                        <li class="kli" style="list-style-type: none"><a
+                                                    href="<?= \yii\helpers\Url::to(['post/list-tag/']) . '?id=' . $item->id ?>"><?= $item->name; ?></a>
+                                        </li>
+                                        <?php
+                                    }?>
+                            </ul>
+                        </div>
                 </div>
 
 

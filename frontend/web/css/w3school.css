@@ -207,3 +207,11 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
 .w3-border-white,.w3-hover-border-white:hover{border-color:#fff!important}
 .w3-border-black,.w3-hover-border-black:hover{border-color:#000!important}
 .w3-border-grey,.w3-hover-border-grey:hover,.w3-border-gray,.w3-hover-border-gray:hover{border-color:#bbb!important}
+
+.klw-new-tags{margin-bottom:70px;}
+.klw-new-tags{margin-bottom:30px!important;}
+.clearfix:after{visibility:hidden;display:block;font-size:0;content:" ";clear:both;height:0;}
+.knt-list .kli{float:left;margin-right:10px;}.knt-list .kli a{padding:8px 10px;display:block;font-family:Arial;font-size:14px;text-decoration:none;background:#ebebeb;color:#555;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;transition:background .3s,color .3s;-webkit-transition:background .3s,color .3s;-moz-transition:background .3s,color .3s;}.knt-list .kli a:hover{background:#555;color:#fff;}
+.knt-list .kli{margin-bottom:8px;}
+.kcnwlnw-list-pages li a{display:block;height:18px;padding:0 6px;font-size:12px;line-height:18px;color:#888;text-decoration:none;border:1px solid #c9c9c9;}.kcnwlnw-list-pages li.active a,.kcnwlnw-list-pages li a:hover{background:#bb3914;color:#fff;border:1px solid #bb3914;}
+.kcnwlnw-list-pages li a:hover{background:#d71f1f;color:#fff;border:solid 1px #d71f1f;}

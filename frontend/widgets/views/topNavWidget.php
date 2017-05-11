@@ -24,20 +24,10 @@ $Baseurl = Yii::$app->homeUrl;
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-<!--                <li>-->
-<!--                    <!--                    <a href="index.html">Home</a>-->
-<!--                    <div class="dropdown">-->
-<!--                        <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Home-->
-<!--                            <span class="caret"></span></button>-->
-<!--                        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">-->
-<!--                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">HTML</a></li>-->
-<!--                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">CSS</a></li>-->
-<!--                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">JavaScript</a></li>-->
-<!--                            <li role="presentation" class="divider"></li>-->
-<!--                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">About Us</a></li>-->
-<!--                        </ul>-->
-<!--                    </div>-->
-<!--                </li>-->
+
+
+
+
 
                 <?php
                     foreach ($dataCat as $key => $value){
