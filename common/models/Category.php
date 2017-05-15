@@ -81,7 +81,7 @@ class Category extends \yii\db\ActiveRecord
     }
 
 
-    public function getCategoryByParent($parent = 0, $group = 4, $status = 1)
+    public function getCategoryByParent($parent = 0, $group = 1, $status = 1)
     {
         $data = Category::find()->asArray()
             ->where('parent_id = :parent and groups_id = :group and status = :status',

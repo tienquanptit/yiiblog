@@ -15,6 +15,23 @@ return [
             'class' => 'rmrevin\yii\module\Comments\Module',
             'userIdentityClass' => 'app\models\User',
             'useRbac' => true,
+
+            //thêm i18n
+            'i18n' => [
+                'translations' => [
+                    'frontend*' => [
+                        'class' => 'yii\i18n\PhpMessageSource',
+                        'basePath' => '@common/messages',
+                    ],
+                    'backend*' => [
+                        'class' => 'yii\i18n\PhpMessageSource',
+                        'basePath' => '@common/messages',
+                    ],
+                ],
+            ],
+            'cache' => [
+                'class' => 'yii\caching\FileCache',
+            ],
         ],
 
         //tích hợp facebook
@@ -30,5 +47,6 @@ return [
 
         ],
     ],
+    'language' => 'en-EN',
 
 ];

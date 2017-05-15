@@ -52,14 +52,14 @@ use yii\web\JsExpression;
     ?>
 
 
-<!--    --><?//= $form->field($model, 'description')->textarea(['id' => 'desc']) ?>
+
     <?= $form->field($model, 'description')->widget(CKEditor::className(), [
         'options' => ['rows' => 6],
         'preset' => 'basic',
         'clientOptions' => ElFinder::ckeditorOptions(['elfinder']),
     ]) ?>
 
-<!--    --><?//= $form->field($model, 'content')->textarea(['id' => 'content']) ?>
+
     <?= $form->field($model, 'content')->widget(CKEditor::className(), [
         'options' => ['rows' => 6],
         'preset' => 'full',
@@ -79,7 +79,7 @@ echo $form->field($model, 'tag')->widget(Select2::classname(), [
     ],
 ])->label('Tag Multiple');
 ?>
-<!--    --><?php //echo $form->field($model,'tags')->textInput(array('size'=>50)); ?>
+
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>

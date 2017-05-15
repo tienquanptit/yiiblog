@@ -14,6 +14,7 @@ use frontend\widgets\topNavWidget;
 use frontend\widgets\footerWidget;
 use frontend\widgets\slideBarWidget;
 FrontAsset::register($this);
+
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
