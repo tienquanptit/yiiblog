@@ -245,4 +245,7 @@ class PostController extends Controller
         }
     }
 
+    public  function  actionViewimage(){
+        return 'sadadas';
+    }
 }

@@ -16,6 +16,19 @@ return [
             'userIdentityClass' => 'app\models\User',
             'useRbac' => true,
 
+            // ...
+
+                // Override the urlManager component
+                'urlManager' => [
+                    'class' => 'codemix\localeurls\UrlManager',
+
+                    // List all supported languages here
+                    // Make sure, you include your app's default language.
+                    'languages' => ['en-US', 'en', 'fr', 'de', 'es-*'],
+                ],
+
+        // ...
+
             //thêm i18n
             'i18n' => [
                 'translations' => [
@@ -47,6 +60,5 @@ return [
 
         ],
     ],
-    'language' => 'en-EN',
 
 ];

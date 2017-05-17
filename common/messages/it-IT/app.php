@@ -18,7 +18,7 @@
  */
 return [
     'Access Denied.' => '',
-    'Add' => 'Them',
+    'Add' => '',
     'Add comment' => '',
     'Author avatar' => '',
     'Cancel' => '',

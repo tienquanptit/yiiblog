@@ -5,6 +5,8 @@ use yii\helpers\Html;
 use common\models\Post;
 use yii\widgets\LinkPager;
 
+use  Stichoza\GoogleTranslate\TranslateClient;
+
 $this->title = 'My Yii Application';
 ?>
 
@@ -12,6 +14,12 @@ $this->title = 'My Yii Application';
 <?php if ($posts) : ?>
 <div class="row">
     <div class="col-xs-12 col-sm-6 col-md-8">
+        <?php echo TranslateClient::translate("en","ja",'hello')."\n"?>
+        <?php
+            $message = 'The image "{file}" is too large. The height cannot be larger than {limit, number} {limit, plural, one{pixel} other{pixels}}.';
+        TranslateClient::getGoogleTranslation($message);
+
+        ?>
         <?php foreach ($posts as $item) : ?>
 
             <div class="w3-card-4 w3-margin w3-white">

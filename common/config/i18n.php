@@ -7,14 +7,14 @@
  * You may modify this file to suit your needs.
  *
  * You can use 'yii message/config-template' command to create
- * template configuration file with detailed description for each parameter.
+ * template configuration file with detaild description for each parameter.
  */
 return [
     'color' => null,
     'interactive' => true,
     'sourcePath' => __DIR__. '..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR,
     'messagePath' => __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'messages',
-    'languages' => ['en-EN','ru-RU'], //Add các ngôn ngữ mà bạn muốn dịch
+    'languages' => ['en-EN','ru-RU','de-DE','es-ES','it-IT','ja-JA'], //Add các ngôn ngữ mà bạn muốn dịch
     'translator' => 'Yii::t',
     'sort' => false,
     'overwrite' => true,

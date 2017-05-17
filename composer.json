@@ -18,7 +18,6 @@
         "yiisoft/yii2": "~2.0.6",
         "yiisoft/yii2-bootstrap": "~2.0.0",
         "yiisoft/yii2-swiftmailer": "~2.0.0",
-        "2amigos/yii2-tinymce-widget": "~1.1",
         "yeesoft/yii2-comments": "~0.1.0",
         "spanjeta/yii2-comments": "*",
         "yii2mod/yii2-comments": "*",
@@ -30,7 +29,9 @@
         "kartik-v/yii2-social": "@dev",
 
         "mihaildev/yii2-elfinder": "*",
-        "2amigos/yii2-ckeditor-widget": "^2.0"
+        "2amigos/yii2-ckeditor-widget": "^2.0",
+        "stichoza/google-translate-php": "^3.2",
+        "codemix/yii2-localeurls": "^1.4"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",
